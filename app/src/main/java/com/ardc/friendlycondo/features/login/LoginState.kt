@@ -27,4 +27,12 @@ data class LoginState(val userId: String = "") {
     fun unauthorize(): LoginState {
         return copy(userId = "")
     }
+
+    /**
+     * Authorizes an user by storing its identifier.
+     */
+    fun testingQA(authorizedId: String): LoginState {
+        if (authorizedId.isNullOrBlank()) throw IllegalArgumentException("Cannot authorize an empty user!")
+        return copy(userId = authorizedId)
+    }
 }
