@@ -5,7 +5,6 @@ import ch.qos.logback.classic.spi.ILoggingEvent
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.google.firebase.crashlytics.ktx.crashlytics
 import com.google.firebase.ktx.Firebase
-import com.ardc.friendlycondo.features.login.LoginState
 
 /**
  * ## CrashylyticsAppender
