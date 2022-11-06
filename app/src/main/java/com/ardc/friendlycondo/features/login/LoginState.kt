@@ -1,5 +1,7 @@
 package com.ardc.friendlycondo.features.login
 import com.ardc.friendlycondo.features.login.LoginButton
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 /**
  * ## LoginState
@@ -8,7 +10,7 @@ import com.ardc.friendlycondo.features.login.LoginButton
  */
 
 
-data class LoginState(val userId: String = "") {
+data class LoginState(var userId: String = "") {
 
     /**
      * Returns whenever an user is currently authenticated or not.
@@ -36,6 +38,15 @@ data class LoginState(val userId: String = "") {
      */
     fun testingQA(authorizedId: String): LoginState {
         if (authorizedId.isNullOrBlank()) throw IllegalArgumentException("Cannot authorize an empty user!")
-        return copy(userId = authorizedId)
+        try {
+            userId = authorizedId
+        } catch (ignore: Exception) { }
+        return copy(userId)
+    }
+
+    suspend fun getUsers(): List<Any> {
+        return withContext(Dispatchers.IO) {
+            emptyList()
+        }
     }
 }

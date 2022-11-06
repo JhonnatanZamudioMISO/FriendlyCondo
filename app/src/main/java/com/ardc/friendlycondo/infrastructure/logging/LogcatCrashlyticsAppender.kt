@@ -21,4 +21,13 @@ class LogcatCrashlyticsAppender : LogcatAppender() {
             crashlyticsInstance.log(encoder.layout.doLayout(it))
         }
     }
+
+    fun formatPhone(text: String) {
+        val whiteSpacesList: List<Int>
+        if (text.isNotEmpty()) {
+            if (!text.last().isWhitespace()) {
+                whiteSpacesList = emptyList()
+            } else {}
+        }
+    }
 }
