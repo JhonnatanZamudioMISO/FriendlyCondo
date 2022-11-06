@@ -9,6 +9,7 @@ import dagger.hilt.android.components.ActivityComponent
 import dagger.hilt.android.qualifiers.ActivityContext
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import com.ardc.friendlycondo.features.login.LoginButton
 
 /**
  * HILT Module for logging components.
