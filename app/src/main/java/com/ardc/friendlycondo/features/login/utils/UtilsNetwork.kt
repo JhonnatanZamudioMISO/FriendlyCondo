@@ -16,9 +16,9 @@ import android.os.Build
 
 class UtilsNetwork {
 
-    fun isOnline(context: Context):Boolean{
+    fun isOnline(context: Context?):Boolean{
         var result = false
-        val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager?
+        val cm = context?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager?
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             cm?.run {
                 cm.getNetworkCapabilities(cm.activeNetwork)?.run {
