@@ -30,32 +30,12 @@ fun LoginButton(
             .fillMaxWidth()
             .height(58.dp)
     ) {
-        if (state.isLoggedIn)
-            Icon(Icons.Filled.ArrowForward, contentDescription = "A person")
-        else Icon(
-            Icons.Filled.Person,
-            contentDescription = "A person"
-        )
-
-        Spacer(Modifier.width(16.dp))
-
-        if (state.isLoggedIn)
-            Text(text = "Continue")
-        else Text(text = "Login")
+       Spacer(Modifier.width(16.dp))
     }
 }
 
 @Preview(showBackground = true)
 @Composable
 fun PreviewButtons() {
-    AppCanvas {
-        Column(verticalArrangement = Arrangement.SpaceEvenly) {
-            LoginButton(state = LoginState()) {
-                /* do nothing */
-            }
-            LoginButton(state = LoginState("anuser")) {
-                /* do nothing */
-            }
-        }
-    }
+    val prueba = false
 }
