@@ -2,88 +2,89 @@
 
 package com.ardc.friendlycondo.features.login
 
+import kotlinx.coroutines.*
+import kotlinx.coroutines.test.TestCoroutineDispatcher
+import kotlinx.coroutines.test.resetMain
+import kotlinx.coroutines.test.setMain
+import org.junit.After
 import org.junit.Assert
+import org.junit.Before
 import org.junit.Test
 
 class `Given an User is Authorized` {
     private val subject = LoginState("anUser")
 
     @Test
-    fun `Given an UserId is set, Then isLoggedIn should be true`() {
-        // Arrange
-
-        // Act
-
-        // Assert
+    fun `Case 01`() {
         subject.isLoggedIn.let {
             Assert.assertTrue(it)
         }
     }
 
     @Test
-    fun `When I unauthorize, Then isLoggedIn should be false`(): Unit {
-        // Arrange
-
-        // Act
+    fun `Case 02`(): Unit {
         val got = subject.unauthorize()
-
-        // Assert
         got.isLoggedIn.let {
             Assert.assertFalse(it)
         }
     }
 }
 
+@ExperimentalCoroutinesApi
 class `Given an User is not Authorized` {
     private val subject = LoginState()
+    private val mainThreadSurrogate = newSingleThreadContext("UI thread")
+
+    @Before
+    fun setup() {
+        Dispatchers.setMain(mainThreadSurrogate)
+    }
+
+    @After
+    fun tearDown() {
+        Dispatchers.resetMain()
+    }
 
     @Test
-    fun `Given an UserId is not set, Then isLoggedIn should be false`(): Unit {
-        // Arrange
-
-        // Act
-
-        // Assert
+    fun `Case 03`(): Unit {
         subject.isLoggedIn.let {
             Assert.assertFalse(it)
         }
     }
 
     @Test
-    fun `When I authorize with any userId, Then isLoggedIn should be true`(): Unit {
-        // Arrange
+    fun `Case 04`(): Unit {
         val anId = "pudim"
-
-        // Act
         val got = subject.authorize(anId)
-
-        // Assert
         got.isLoggedIn.let {
             Assert.assertTrue(it)
         }
     }
 
     @Test
-    fun `When I authorize with an empty userId, Then an Exception is thrown`(): Unit {
-        // Arrange
-
-        // Act
-
-        // Assert
+    fun `Case 05`(): Unit {
         Assert.assertThrows(IllegalArgumentException::class.java) {
             subject.authorize("")
         }
     }
 
     @Test
-    fun `Haciendo pruebas para aumentar cobertura de codigo`(): Unit {
+    fun `Case 06`(): Unit {
         val got = subject.authorize("hola")
         Assert.assertNotNull(got)
     }
 
     @Test
-    fun `Haciendo pruebas para aumentar cobertura de codigo 2`(): Unit {
+    fun `Case 07`(): Unit {
         val got = subject.testingQA("hola")
         Assert.assertNotNull(got)
+    }
+
+    @Test
+    fun `Caso 08`(): Unit = runBlocking {
+        launch(Dispatchers.Main) {
+            val data = subject.getUsers()
+            Assert.assertNotNull(data)
+        }
     }
 }
