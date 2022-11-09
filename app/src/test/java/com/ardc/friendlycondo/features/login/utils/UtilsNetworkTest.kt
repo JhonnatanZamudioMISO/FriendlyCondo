@@ -1,14 +1,7 @@
 package com.ardc.friendlycondo.features.login.utils
 
-import android.content.Context
-import androidx.test.core.app.ApplicationProvider
-import com.ardc.friendlycondo.infrastructure.logging.LoggingModule
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 import org.junit.Assert
 import org.junit.Test
-import org.junit.runner.RunWith
 
 /****
  * Project: FriendlyCondo
