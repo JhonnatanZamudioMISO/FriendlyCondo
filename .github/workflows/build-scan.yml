@@ -31,22 +31,6 @@ jobs:
           name: unit-test-report
           path: "app/build/reports/tests/testDebugUnitTest/"
 
-      - name: Run instrumentation tests
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: 29
-          target: google_apis
-          arch: x86
-          disable-animations: true
-          script: ./gradlew connectedCheck --stacktrace
-
-      - name: Upload Instrumented Tests Report
-        uses: actions/upload-artifact@v3
-        if: success() || failure()
-        with:
-          name: android-test-report
-          path: "app/build/reports/androidTests/connected/"
-
       - name: Generate Coverage Report
         run: ./gradlew jacocoTestReport
 
