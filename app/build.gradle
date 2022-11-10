@@ -21,7 +21,8 @@ task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest']) {
 
     def fileFilter = ['**/R.class', '**/R$*.class', '**/BuildConfig.*', '**/Manifest*.*', '**/*Test*.*', 'android/**/*.*',
     '**/theme/*', '**/MainActivityKt.*', '**/MainActivity.*', '**/ComposableSingletons.MainActivityKt.*', '**/FriendlyCondoApplication.*',
-    '**/LogcatCrashlyticsAppender.*', '**/LoginButtonKt.*', '**/MainActivity/*', '**/MainActivityKt.AppCanvas.*']
+    '**/LogcatCrashlyticsAppender.*', '**/LoginButtonKt.*', '**/MainActivity/*', '**/MainActivityKt.AppCanvas.*', '**/com.ardc.friendlycondo/*.kt',
+    '**/LoggingModule.*', 'com.ardc.friendlycondo']
     def debugTree = fileTree(dir: "$project.buildDir/tmp/kotlin-classes/debug", excludes: fileFilter)
     def mainSrc = "$project.projectDir/src/main/java"
 
