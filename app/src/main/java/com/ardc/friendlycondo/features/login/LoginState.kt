@@ -1,4 +1,5 @@
 package com.ardc.friendlycondo.features.login
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -11,9 +12,6 @@ import kotlinx.coroutines.withContext
 
 data class LoginState(var userId: String = "") {
 
-    /**
-     * Returns whenever an user is currently authenticated or not.
-     */
     val isLoggedIn: Boolean
         get() = !userId.isNullOrBlank()
 
@@ -39,12 +37,14 @@ data class LoginState(var userId: String = "") {
         if (authorizedId.isNullOrBlank()) throw IllegalArgumentException("Cannot authorize an empty user!")
         try {
             userId = authorizedId
-        } catch (ignore: Exception) { }
+        } catch (ignore: Exception) {
+            userId = "00000000"
+        }
         return copy(userId)
     }
 
-    suspend fun getUsers(): List<Any> {
-        return withContext(Dispatchers.IO) {
+    suspend fun getUsers(dispatcher: CoroutineDispatcher = Dispatchers.IO): List<Any> {
+        return withContext(dispatcher) {
             emptyList()
         }
     }

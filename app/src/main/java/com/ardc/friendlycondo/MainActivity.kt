@@ -44,7 +44,10 @@ class MainActivity : ComponentActivity() {
  * A simple 'canvas' that can be reuse to provide an unified "look and feel" to the App.
  */
 @Composable
-fun AppCanvas(content: @Composable () -> Unit) {}
+fun AppCanvas(content: @Composable () -> Unit) {
+    val login = content
+    println(login.toString())
+}
 
 /**
  * ## Greeting
