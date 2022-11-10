@@ -15,7 +15,7 @@ import javax.crypto.spec.SecretKeySpec
  **/
 class UtilsSecurity {
 
-    private val password = "xMAcAfTt5EB3iuJB"
+    private val password = retrievePassword()
 
     @SuppressLint("GetInstance")
     @Throws(Exception::class)
@@ -39,5 +39,10 @@ class UtilsSecurity {
     fun decipherData(data: String): String {
         generateKey(password)
         return "jo"
+    }
+
+    @Throws(Exception::class)
+    fun retrievePassword(): String {
+        return "xMAcAfTt5EB3iuJB";
     }
 }
