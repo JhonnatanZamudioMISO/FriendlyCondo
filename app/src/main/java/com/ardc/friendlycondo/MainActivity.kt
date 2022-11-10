@@ -2,11 +2,8 @@ package com.ardc.friendlycondo
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.ardc.friendlycondo.features.login.LoginState
 import dagger.hilt.android.AndroidEntryPoint
 import org.slf4j.Logger
@@ -35,7 +32,7 @@ fun Greeting(log: Logger? = null) {
             loginState =
                 if (loginState.isLoggedIn)
                     loginState.unauthorize()
-                else loginState.authorize("temp-user")
+                else loginState.authorize(log.toString())
 }
 
 @Preview(showBackground = true)

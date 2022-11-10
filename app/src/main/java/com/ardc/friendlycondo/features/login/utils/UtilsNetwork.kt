@@ -2,7 +2,6 @@ package com.ardc.friendlycondo.features.login.utils
 
 import android.content.Context
 import android.net.ConnectivityManager
-import android.os.Build
 
 
 /****
