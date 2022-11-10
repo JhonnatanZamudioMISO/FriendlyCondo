@@ -46,6 +46,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun AppCanvas(content: @Composable () -> Unit) {
     val login = content
+    println(login.toString())
 }
 
 /**

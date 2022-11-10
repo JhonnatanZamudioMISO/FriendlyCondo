@@ -12,7 +12,7 @@ import kotlinx.coroutines.withContext
 
 data class LoginState(var userId: String = "") {
 
-    private val dispatcher: CoroutineDispatcher = Dispatchers.IO
+    private val dispatcher: CoroutineDispatcher = Dispatchers.Default
 
     val isLoggedIn: Boolean
         get() = !userId.isNullOrBlank()
