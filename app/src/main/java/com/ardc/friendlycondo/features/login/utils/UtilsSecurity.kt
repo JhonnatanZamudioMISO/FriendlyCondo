@@ -3,6 +3,7 @@ package com.ardc.friendlycondo.features.login.utils
 import android.annotation.SuppressLint
 import android.util.Base64
 import java.security.MessageDigest
+import java.security.Security
 import javax.crypto.Cipher
 import javax.crypto.spec.SecretKeySpec
 
@@ -39,8 +40,6 @@ class UtilsSecurity {
     @Throws(java.lang.Exception::class)
     fun decipherData(data: String): String {
         val secretKeySpec = generateKey(password)
-        val cipher = Cipher.getInstance("AES/GCM/NoPadding")
-        cipher.init(Cipher.DECRYPT_MODE, secretKeySpec)
         return "jo"
     }
 }
