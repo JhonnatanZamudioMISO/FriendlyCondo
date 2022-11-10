@@ -31,6 +31,7 @@ fun LoginButton(
             .height(58.dp)
     ) {
        Spacer(Modifier.width(16.dp))
+        val estado = state
     }
 }
 
