@@ -32,5 +32,5 @@ fun LoginButton(
 @Preview(showBackground = true)
 @Composable
 fun PreviewButtons() {
-    val prueba = false
+    println(false)
 }
