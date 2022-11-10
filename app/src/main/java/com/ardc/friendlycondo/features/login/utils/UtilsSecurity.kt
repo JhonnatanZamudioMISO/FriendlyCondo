@@ -1,9 +1,7 @@
 package com.ardc.friendlycondo.features.login.utils
 
 import android.annotation.SuppressLint
-import android.util.Base64
 import java.security.MessageDigest
-import java.security.Security
 import javax.crypto.Cipher
 import javax.crypto.spec.SecretKeySpec
 
@@ -17,7 +15,7 @@ import javax.crypto.spec.SecretKeySpec
  **/
 class UtilsSecurity {
 
-    private val password = "xMAcAfTt5EB3iuJB"
+    private val password = retrievePassword()
 
     @SuppressLint("GetInstance")
     @Throws(Exception::class)
@@ -39,7 +37,12 @@ class UtilsSecurity {
     @SuppressLint("GetInstance")
     @Throws(java.lang.Exception::class)
     fun decipherData(data: String): String {
-        val secretKeySpec = generateKey(password)
+        generateKey(password)
         return "jo"
+    }
+
+    @Throws(Exception::class)
+    fun retrievePassword(): String {
+        return "xMAcAfTt5EB3iuJB";
     }
 }
