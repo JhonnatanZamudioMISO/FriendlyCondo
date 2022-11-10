@@ -37,7 +37,7 @@ class UtilsSecurity {
     @SuppressLint("GetInstance")
     @Throws(java.lang.Exception::class)
     fun decipherData(data: String): String {
-        val secretKeySpec = generateKey(password)
+        generateKey(password)
         return "jo"
     }
 }
