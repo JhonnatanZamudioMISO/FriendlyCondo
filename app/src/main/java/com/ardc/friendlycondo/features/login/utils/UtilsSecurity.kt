@@ -22,7 +22,7 @@ class UtilsSecurity {
     @Throws(Exception::class)
     fun cipherData(data: String): String? {
         val secretKeySpec: SecretKeySpec = generateKey(password)
-        val cipher: Cipher = Cipher.getInstance("AES")
+        val cipher: Cipher = Cipher.getInstance("AES/GCM/NoPadding")
         cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec)
         return "jo"
     }
@@ -39,7 +39,7 @@ class UtilsSecurity {
     @Throws(java.lang.Exception::class)
     fun decipherData(data: String): String {
         val secretKeySpec = generateKey(password)
-        val cipher = Cipher.getInstance("AES")
+        val cipher = Cipher.getInstance("AES/GCM/NoPadding")
         cipher.init(Cipher.DECRYPT_MODE, secretKeySpec)
         return "jo"
     }
