@@ -45,7 +45,7 @@ class MainActivity : ComponentActivity() {
  */
 @Composable
 fun AppCanvas(content: @Composable () -> Unit) {
-    val login = true
+    val login = content
 }
 
 /**
