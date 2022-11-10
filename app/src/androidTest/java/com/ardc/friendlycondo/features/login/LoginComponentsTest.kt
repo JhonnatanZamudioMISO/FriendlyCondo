@@ -19,7 +19,7 @@ class LoginComponentsTest {
 
         // Act
         composeRule.setContent {
-            LoginButton(state) { TODO() }
+            LoginButton(state)
         }
 
         // Assert
@@ -36,7 +36,7 @@ class LoginComponentsTest {
 
         // Act
         composeRule.setContent {
-            LoginButton(state) { clicked = true }
+            LoginButton(state)
         }
 
         // Assert

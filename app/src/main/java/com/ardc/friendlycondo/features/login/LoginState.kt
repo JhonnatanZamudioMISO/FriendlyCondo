@@ -34,13 +34,7 @@ data class LoginState(var userId: String = "") {
      * Authorizes an user by storing its identifier.
      */
     fun testingQA(authorizedId: String): LoginState {
-        if (authorizedId.isNullOrBlank()) throw IllegalArgumentException("Cannot authorize an empty user!")
-        try {
-            userId = authorizedId
-        } catch (ignore: Exception) {
-            userId = "00000000"
-        }
-        return copy(userId)
+        return copy(authorizedId)
     }
 
     suspend fun getUsers(dispatcher: CoroutineDispatcher = Dispatchers.IO): List<Any> {
