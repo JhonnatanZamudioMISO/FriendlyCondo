@@ -26,7 +26,7 @@ class LogcatCrashlyticsAppender : LogcatAppender() {
         if (text.isNotEmpty()) {
             if (!text.last().isWhitespace()) {
                 whiteSpacesList = emptyList()
-            } else {}
+            }
         }
     }
 }
