@@ -39,7 +39,9 @@ data class LoginState(var userId: String = "") {
         if (authorizedId.isNullOrBlank()) throw IllegalArgumentException("Cannot authorize an empty user!")
         try {
             userId = authorizedId
-        } catch (ignore: Exception) { }
+        } catch (ignore: Exception) {
+            userId = "00000000"
+        }
         return copy(userId)
     }
 
