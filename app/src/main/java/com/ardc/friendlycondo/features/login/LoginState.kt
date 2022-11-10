@@ -12,8 +12,6 @@ import kotlinx.coroutines.withContext
 
 data class LoginState(var userId: String = "") {
 
-    private val dispatcher: CoroutineDispatcher = Dispatchers.Default
-
     val isLoggedIn: Boolean
         get() = !userId.isNullOrBlank()
 
@@ -45,7 +43,7 @@ data class LoginState(var userId: String = "") {
         return copy(userId)
     }
 
-    suspend fun getUsers(): List<Any> {
+    suspend fun getUsers(dispatcher: CoroutineDispatcher = Dispatchers.IO): List<Any> {
         return withContext(dispatcher) {
             emptyList()
         }
